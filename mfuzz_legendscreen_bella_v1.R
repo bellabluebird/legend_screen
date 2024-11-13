@@ -1,8 +1,22 @@
-# library loading! woohoo!
-library("Mfuzz")
+# Mfuzz: using noise-robust soft clustering of omics time-series data
+# in our case, this package allowed us to visualize how different cell 
+# surface markers change in their expression over time; this is really
+# helpful since we have very distinct timepoints.
 
-# i sorted this data in excel, the columns need to be in order of "timepoint" for mfuzz
+# we chose to use this package to expand on our previous k-means clustering. 
+# this is useful to illustrate exactly what differentiates each cluster from each other, and 
+# helps identify future patterns for us to build on
+
+# when i originally did this, i sorted this data in excel. i've gone back and done it using dplyr/tidyr
+# the columns need to be in order of "timepoint" for mfuzz to process them properly
 # col1 -> avg of myo data, col2 -> avg of d10, col3 -> avg of d15, col4 -< avg of d20
+
+# library loading! woohoo!
+library(Mfuzz) # soft clustering of omics time-series data
+library(dplyr) # data manipulation
+library(tidyr) # tidying data + more manipulation
+
+
 mfuzz_mat <- read.csv("/Users/bellapfeiffer/Dropbox (Harvard University)/Circle Tx/R Scripts/LegendScreen Analysis BP/timepoint analysis.csv", header = TRUE, row.names = 1, stringsAsFactors = FALSE)
 eset <- ExpressionSet(assayData = as.matrix(mfuzz_mat))
 
