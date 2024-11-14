@@ -5,7 +5,7 @@
 
 # for data privacy purposes, i removed the target names from the list and added id numbers
 
-# an outline for the first few portions was given to me by Kris Holton
+# an outline for the first few portions was given to me by KH in the Rubin Lab
 # i am now comfortable performing this type of data manipulation after this project
 
 # loading libraries
@@ -72,12 +72,12 @@ fviz_pca_var(res.pca, geom = "point", col.var="contrib",
 fviz_contrib(res.pca, choice = "var", axes = 1, top = 10)
 fviz_contrib(res.pca, choice = "var", axes = 2, top = 10)
 
-#store pca in var
+# store pca in var
 var <- get_pca_var(res.pca)
-#get pca individual's data and store
+# get pca individual's data and store
 ind <- get_pca_ind(res.pca)
 
-# k-means clustering - PC1 vs PC2
+# 1. k-means clustering - PC1 vs PC2
 new_mat <- na.omit(mat)
 df <- scale(new_mat)
 fviz_nbclust(new_mat, kmeans, method = "gap_stat") #find optimal number of clusters (in this case, 8)
@@ -90,8 +90,8 @@ write.xlsx(mat.res$cluster, "matrix.v1.xlsx") # saving output as xslx file for b
 # 3. visualization outputs
 # at the time i made this, i created multiple outputs; i have reduced it to 1 for simplicity
 
-# Create the clustering plot with enhancements
-fviz_cluster(mat.res, data = df,
+# creating a beautiful plot
+plot <- fviz_cluster(mat.res, data = df,
              pointsize = 4,
              labelsize = 9,
              palette = brewer.pal(8, "Dark2"),
@@ -104,7 +104,9 @@ fviz_cluster(mat.res, data = df,
   theme(
     legend.position = "right", 
     legend.title = element_blank(),
-    plot.title = element_text(hjust = 0.5),  # Center the title
-    axis.title = element_text(size = 10),     # Smaller axis title text
-    axis.text = element_text(size = 10)      # Smaller axis labels
+    plot.title = element_text(hjust = 0.5), 
+    axis.title = element_text(size = 10), 
+    axis.text = element_text(size = 10) 
   )
+
+print(plot)
