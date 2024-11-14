@@ -5,8 +5,8 @@
 
 # for data privacy purposes, i removed the target names from the list and added id numbers
 
-# the initial data manipulation was shown to me by Kris Holton; I learned more about this 
-# in my grad program and now feel comfortable performing this type of data manipulation.
+# an outline for the first few portions was given to me by Kris Holton
+# i am now comfortable performing this type of data manipulation after this project
 
 # loading libraries
 library(dplyr) # data manipulation
