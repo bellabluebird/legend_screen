@@ -85,7 +85,6 @@ fviz_nbclust(new_mat, kmeans, method = "gap_stat") #find optimal number of clust
 # 2. compute k-means + cluster
 set.seed(126)
 mat.res <- kmeans(scale(new_mat), 8, nstart = 25) #nstart = random initialization
-write.xlsx(mat.res$cluster, "matrix.v1.xlsx") # saving output as xslx file for biologists
 
 # 3. visualization outputs
 # at the time i made this, i created multiple outputs; i have reduced it to 1 for simplicity
