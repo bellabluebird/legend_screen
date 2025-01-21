@@ -7,8 +7,6 @@
 # this is useful to illustrate exactly what differentiates each cluster from each other, and 
 # helps identify future patterns for us to build on
 
-# when i originally did this, i sorted this data in excel. i've gone back and done it using dplyr/tidyr
-# the columns need to be in order of "timepoint" for mfuzz to process them properly
 # col1 -> avg of myo data, col2 -> avg of d10, col3 -> avg of d15, col4 -< avg of d20
 
 # library loading! woohoo!
